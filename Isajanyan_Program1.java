@@ -187,13 +187,12 @@ public class Isajanyan_Program1 {
 		
 		glBegin(GL_POINTS);
 		while(x < x1) {
-			if(d > 0) {
+			if(d >= 0) {
 				x += 1;
 				y += 1;
 			}
 			else {
-				x -= 1;
-				y -= 1;
+				x += 1;
 			}
 			
 			glVertex2f(x, y); // plot points
@@ -206,24 +205,12 @@ public class Isajanyan_Program1 {
 	
 	// draw circle
 	private void drawCircle(float x, float y, float r) {
-		glColor3f(0.0f, 0.0f, 1.0f);
-		glPointSize(5);
 		
-		glBegin(GL_LINE_LOOP);
-		glVertex2f(150, 200);
-		glVertex2f(80, 145);
-		glEnd( );
 	}
 	
 	// draw ellipse
 	private void drawEllipse(float x, float y, float rx, float ry) {
-		glColor3f(0.0f, 1.0f, 0.0f);
-		glPointSize(5);
-		
-		glBegin(GL_LINE_LOOP);
-		glVertex2f(150, 200);
-		glVertex2f(80, 145);
-		glEnd( );
+	
 	}
 	
 	// main
