@@ -118,7 +118,7 @@ public class Isajanyan_Program1 {
         glMatrixMode(GL_PROJECTION);
         glLoadIdentity();
         
-        glOrtho(-640, 640, -480, 480, 1, -1);
+        glOrtho(-320, 320, -240, 240, 1, -1);
         
         glMatrixMode(GL_MODELVIEW);
         glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
@@ -184,7 +184,7 @@ public class Isajanyan_Program1 {
                 x = x0,
                 y = y0;
         
-        glBegin(GL_POINT);
+        glBegin(GL_LINE_LOOP);
             glVertex2f(x, y); // plot points
             
             while(x < x1) {
