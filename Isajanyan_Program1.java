@@ -159,6 +159,7 @@ public class Isajanyan_Program1 {
                 break;
             default:
                 System.out.println("wtf"); // debug
+                break;
         }
     }
     
@@ -177,12 +178,12 @@ public class Isajanyan_Program1 {
 		• y - the current y value to plot
 		 */
         float dx = x1 - x0,
-                dy = y1 - y0,
-                d  = 2*dy - dx,
-                incrementRight   = 2*dy,
-                incrementUpRight = 2*(dy - dx),
-                x = x0,
-                y = y0;
+              dy = y1 - y0,
+              d  = 2*dy - dx,
+              incrementRight   = 2*dy,
+              incrementUpRight = 2*(dy - dx),
+              x = x0,
+              y = y0;
         
         glBegin(GL_LINE_LOOP);
             glVertex2f(x, y); // plot points
