@@ -164,9 +164,28 @@ public class Isajanyan_Program1 {
 	}
 	
 	// draw line
-	private void drawLine(float x1, float y1, float x2, float y2) {
+	private void drawLine(float x0, float y0, float x1, float y1) {
 		glColor3f(1.0f, 0.0f, 0.0f);
 		glPointSize(10);
+		
+		/*
+		• dx - change in x
+		• dy - change in y
+		• d - the distance to the midpoint
+		• incrementRight - how much to move right (E)
+		• incrementUpRight - how much to move up and to the right (NE)
+		• x - the current x value to plot
+		• y - the current y value to plot
+		 */
+		float dx = x1 - x0,
+			  dy = y1 - y0,
+			  d  = 2*dy - dx,
+	          incrementRight   = 2*dy,
+			  incrementUpRight = 2*(dy - dx),
+			  x = x0,
+			  y = y0;
+		
+		
 		
 		glBegin(GL_LINE_LOOP);
 		glVertex2f(150, 200);
