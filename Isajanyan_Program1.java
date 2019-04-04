@@ -102,6 +102,15 @@ public class Isajanyan_Program1 {
 		scanner.close();
 	}
 	
+	// create window
+	private void createWindow() throws Exception{
+		Display.setFullscreen(false);
+		
+		Display.setDisplayMode(new DisplayMode(640, 480));
+		Display.setTitle("Isajanyan_Program1");
+		Display.create( );
+	}
+	
 	// init GL
 	private void initGL() {
 		glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
@@ -124,7 +133,7 @@ public class Isajanyan_Program1 {
 				glLoadIdentity( );
 				
 				// draw primitives
-				
+				primitives.forEach(this::drawPrimitive);
 				
 				Display.update();
 				Display.sync(60);
@@ -136,31 +145,26 @@ public class Isajanyan_Program1 {
 		Display.destroy( );
 	}
 	
-	// draw given polygon obj
-	private void draw() {
-		glColor3f(polygon.getColorAt(0), polygon.getColorAt(1), polygon.getColorAt(2));
-		glPointSize(10);
+	// draw given primitive
+	private void drawPrimitive(float[] floats) {
+		switch((char)floats[0]) {
+			case 'l':
+				drawLine(floats[1], floats[2], floats[3], floats[4]);
+				break;
+			case 'c':
+				drawCircle(floats[1], floats[2], floats[3]);
+				break;
+			case 'e':
+				drawEllipse(floats[1], floats[2], floats[3], floats[4]);
+				break;
+			default:
+				System.out.println();
+		}
 		
-		glBegin(GL_POLYGON);
-		polygon.vertices.forEach(ints -> glVertex2f(ints[0], ints[1]));
-		glEnd( );
 	}
 	
-	// create window
-	private void createWindow() throws Exception{
-		Display.setFullscreen(false);
-		
-		Display.setDisplayMode(new DisplayMode(640, 480));
-		Display.setTitle("Isajanyan_Program1");
-		Display.create( );
-	}
-	
-	private void storePrimitive(char type, int[] vertex,) {
-	
-	}
-	
-	// adds attributes to array and stores it into PrimitivesList
-	private void storeLine(int x1, int y1, int x2, int y2) {
+	// draw line
+	private void drawLine(float x1, float y1, float x2, float y2) {
 		glColor3f(1.0f, 0.0f, 0.0f);
 		glPointSize(10);
 		
@@ -170,8 +174,8 @@ public class Isajanyan_Program1 {
 		glEnd( );
 	}
 	
-	// circle
-	private void drawCircle(int x, int y, int r) {
+	// draw circle
+	private void drawCircle(float x, float y, float r) {
 		glColor3f(0.0f, 0.0f, 1.0f);
 		glPointSize(5);
 		
@@ -181,8 +185,8 @@ public class Isajanyan_Program1 {
 		glEnd( );
 	}
 	
-	// ellipse
-	private void drawEllipse(int x, int y, int rx, int ry) {
+	// draw ellipse
+	private void drawEllipse(float x, float y, float rx, float ry) {
 		glColor3f(0.0f, 1.0f, 0.0f);
 		glPointSize(5);
 		
