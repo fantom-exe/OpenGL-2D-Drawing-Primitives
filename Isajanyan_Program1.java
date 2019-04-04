@@ -25,7 +25,7 @@ import static org.lwjgl.opengl.GL11.*;
 
 public class Isajanyan_Program1 {
 	// stores all primitives
-	private ArrayList primitives = new ArrayList();
+	private ArrayList<float[]> primitives = new ArrayList<>();
 	
 	// start
 	private void start() {
@@ -44,29 +44,28 @@ public class Isajanyan_Program1 {
 	
 	// read coordinates from file
 	private void readCoordinates() throws FileNotFoundException {
-		Scanner scanner = new Scanner(new File("coordinates.txt"));
-		String   line;
+		Scanner  scanner = new Scanner(new File("coordinates.txt"));
+		String   readLine;
 		String[] tokens;
+		float[]  primitive;
 		
 		while(scanner.hasNextLine()) {
-			line   = scanner.nextLine();
-			tokens = line.split(" ");
+			readLine = scanner.nextLine();
+			tokens   = readLine.split("[ ,]");
 			
-			if(tokens[0].equals("l")) {
-				do { // store vertices
-					tokens = line.split(" ");
-					
-					polygon.addVertex(Integer.parseInt(tokens[0]),
-					                  Integer.parseInt(tokens[1])); // store vertices
-				} while(scanner.hasNextInt());
+			if(tokens[0].equals("l")) { // line
+				// store vertices
+				primitive = new float[4];
 				
-				polygonArray.add(polygon); // add polygon to array
+				primitive[0] = Float.parseFloat(tokens[0]);
+				primitive[1] = Float.parseFloat(tokens[1]);
+				primitive[2] = Float.parseFloat(tokens[2]);
+				primitive[3] = Float.parseFloat(tokens[3]);
+				
+				primitives.add(primitive);
 			}
-			else if(tokens[0].equals("c")) {
+			else if(tokens[0].equals("c")) { // circle
 				do { // store transitions
-					line = scanner.nextLine(); // go to next line
-					tokens = line.split(" ");
-					
 					switch(tokens[0].charAt(0)) {
 						case 'r':
 							polygon.addRotation(Integer.parseInt(tokens[1]),
@@ -87,8 +86,8 @@ public class Isajanyan_Program1 {
 				} while(!scanner.hasNext("[P]") && scanner.hasNextLine());
 				
 			}
-			else if(tokens[0].equals("e")) {
-			
+			else if(tokens[0].equals("e")) { // ellipse
+				
 			}
 			
 		} // while
@@ -149,7 +148,7 @@ public class Isajanyan_Program1 {
 		Display.create( );
 	}
 	
-	private void storePrimitive(char type, ) {
+	private void storePrimitive(char type, int[] vertex,) {
 	
 	}
 	
