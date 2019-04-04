@@ -54,40 +54,47 @@ public class Isajanyan_Program1 {
 			tokens   = readLine.split("[ ,]");
 			
 			if(tokens[0].equals("l")) { // line
-				// store vertices
-				primitive = new float[4];
-				
+				primitive = new float[5];
 				primitive[0] = Float.parseFloat(tokens[0]);
+				
+				// store vertex 1
 				primitive[1] = Float.parseFloat(tokens[1]);
 				primitive[2] = Float.parseFloat(tokens[2]);
+				
+				// store vertex 2
 				primitive[3] = Float.parseFloat(tokens[3]);
+				primitive[4] = Float.parseFloat(tokens[4]);
 				
 				primitives.add(primitive);
 			}
 			else if(tokens[0].equals("c")) { // circle
-				do { // store transitions
-					switch(tokens[0].charAt(0)) {
-						case 'r':
-							polygon.addRotation(Integer.parseInt(tokens[1]),
-							                    Integer.parseInt(tokens[2]),
-							                    Integer.parseInt(tokens[3]));
-							break;
-						case 's':
-							polygon.addScaling(Float.parseFloat(tokens[1]),
-							                   Float.parseFloat(tokens[2]),
-							                   Float.parseFloat(tokens[3]),
-							                   Float.parseFloat(tokens[4]));
-							break;
-						case 't':
-							polygon.addTranslation(Integer.parseInt(tokens[1]),
-							                       Integer.parseInt(tokens[2]));
-							break;
-					}
-				} while(!scanner.hasNext("[P]") && scanner.hasNextLine());
+				primitive = new float[4];
+				primitive[0] = Float.parseFloat(tokens[0]);
 				
+				// store center
+				primitive[1] = Float.parseFloat(tokens[1]);
+				primitive[2] = Float.parseFloat(tokens[2]);
+				
+				// store radius
+				primitive[3] = Float.parseFloat(tokens[3]);
+				
+				primitives.add(primitive);
 			}
 			else if(tokens[0].equals("e")) { // ellipse
+				primitive = new float[5];
+				primitive[0] = Float.parseFloat(tokens[0]);
 				
+				// store center
+				primitive[1] = Float.parseFloat(tokens[1]);
+				primitive[2] = Float.parseFloat(tokens[2]);
+				
+				// store rx
+				primitive[3] = Float.parseFloat(tokens[3]);
+				
+				// store ry
+				primitive[4] = Float.parseFloat(tokens[4]);
+				
+				primitives.add(primitive);
 			}
 			
 		} // while
