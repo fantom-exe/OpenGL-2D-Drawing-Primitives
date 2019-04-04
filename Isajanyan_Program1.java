@@ -53,7 +53,7 @@ public class Isajanyan_Program1 {
 			readLine = scanner.nextLine();
 			tokens   = readLine.split("[ ,]");
 			
-			if(tokens[0].charAt(0) == 't') { // line
+			if(tokens[0].charAt(0) == 'l') { // line
 				primitive = new float[5];
 				primitive[0] = (float)tokens[0].charAt(0);
 				
@@ -160,7 +160,6 @@ public class Isajanyan_Program1 {
 			default:
 				System.out.println();
 		}
-		
 	}
 	
 	// draw line
@@ -186,6 +185,8 @@ public class Isajanyan_Program1 {
 			  y = y0;
 		
 		glBegin(GL_POINTS);
+		glVertex2f(x, y); // plot points
+		
 		while(x < x1) {
 			if(d >= 0) {
 				x += 1;
@@ -195,6 +196,7 @@ public class Isajanyan_Program1 {
 				x += 1;
 			}
 			
+			System.out.println(x+", "+y); // debug
 			glVertex2f(x, y); // plot points
 			
 			d += incrementUpRight;
@@ -205,7 +207,7 @@ public class Isajanyan_Program1 {
 	
 	// draw circle
 	private void drawCircle(float x, float y, float r) {
-		
+	
 	}
 	
 	// draw ellipse
