@@ -185,12 +185,23 @@ public class Isajanyan_Program1 {
 			  x = x0,
 			  y = y0;
 		
-		
-		
-		glBegin(GL_LINE_LOOP);
-		glVertex2f(150, 200);
-		glVertex2f(80, 145);
+		glBegin(GL_POINTS);
+		while(x < x1) {
+			if(d > 0) {
+				x += 1;
+				y += 1;
+			}
+			else {
+				x -= 1;
+				y -= 1;
+			}
+			
+			glVertex2f(x, y); // plot points
+			
+			d += incrementUpRight;
+		}
 		glEnd( );
+		
 	}
 	
 	// draw circle
