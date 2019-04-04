@@ -118,7 +118,7 @@ public class Isajanyan_Program1 {
         glMatrixMode(GL_PROJECTION);
         glLoadIdentity();
         
-        glOrtho(-320, 320, -240, 240, 1, -1);
+        glOrtho(-640, 640, -480, 480, 1, -1);
         
         glMatrixMode(GL_MODELVIEW);
         glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
@@ -158,7 +158,7 @@ public class Isajanyan_Program1 {
                 drawEllipse(floats[1], floats[2], floats[3], floats[4]);
                 break;
             default:
-                System.out.println();
+                System.out.println("wtf"); // debug
         }
     }
     
@@ -184,23 +184,23 @@ public class Isajanyan_Program1 {
                 x = x0,
                 y = y0;
         
-        glBegin(GL_POINTS);
-        glVertex2f(x, y); // plot points
-        
-        while(x < x1) {
-            if(d >= 0) {
-                x += 1;
-                y += 1;
-            }
-            else {
-                x += 1;
-            }
-            
-            System.out.println(x+", "+y); // debug
+        glBegin(GL_POINT);
             glVertex2f(x, y); // plot points
             
-            d += incrementUpRight;
-        }
+            while(x < x1) {
+                if(d >= 0) {
+                    x += 1;
+                    y += 1;
+                }
+                else {
+                    x += 1;
+                }
+                
+                System.out.println(x+", "+y); // debug
+                glVertex2f(x, y); // plot points
+                
+                d += incrementUpRight;
+            }
         glEnd( );
         
     }
