@@ -53,9 +53,9 @@ public class Isajanyan_Program1 {
 			readLine = scanner.nextLine();
 			tokens   = readLine.split("[ ,]");
 			
-			if(tokens[0].equals("l")) { // line
+			if(tokens[0].charAt(0) == 't') { // line
 				primitive = new float[5];
-				primitive[0] = Float.parseFloat(tokens[0]);
+				primitive[0] = (float)tokens[0].charAt(0);
 				
 				// store vertex 1
 				primitive[1] = Float.parseFloat(tokens[1]);
@@ -67,9 +67,9 @@ public class Isajanyan_Program1 {
 				
 				primitives.add(primitive);
 			}
-			else if(tokens[0].equals("c")) { // circle
+			else if(tokens[0].charAt(0) == 'c') { // circle
 				primitive = new float[4];
-				primitive[0] = Float.parseFloat(tokens[0]);
+				primitive[0] = (float)tokens[0].charAt(0);
 				
 				// store center
 				primitive[1] = Float.parseFloat(tokens[1]);
@@ -80,9 +80,9 @@ public class Isajanyan_Program1 {
 				
 				primitives.add(primitive);
 			}
-			else if(tokens[0].equals("e")) { // ellipse
+			else if(tokens[0].charAt(0) == 'e') { // ellipse
 				primitive = new float[5];
-				primitive[0] = Float.parseFloat(tokens[0]);
+				primitive[0] = (float)tokens[0].charAt(0);
 				
 				// store center
 				primitive[1] = Float.parseFloat(tokens[1]);
