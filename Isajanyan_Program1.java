@@ -17,12 +17,15 @@ import org.lwjgl.opengl.DisplayMode;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import static org.lwjgl.opengl.GL11.*;
 
 
 public class Isajanyan_Program1 {
+	// stores all primitives
+	private ArrayList primitives = new ArrayList();
 	
 	// start
 	private void start() {
@@ -45,20 +48,12 @@ public class Isajanyan_Program1 {
 		String   line;
 		String[] tokens;
 		
-		Polygon polygon = new Polygon();
-		
 		while(scanner.hasNextLine()) {
 			line   = scanner.nextLine();
 			tokens = line.split(" ");
 			
-			if(tokens[0].equals("P")) {
-				polygon = new Polygon(); // create new polygon
-				polygon.setColor(Float.parseFloat(tokens[1]),
-				                 Float.parseFloat(tokens[2]),
-				                 Float.parseFloat(tokens[3])); // store color
-				
+			if(tokens[0].equals("l")) {
 				do { // store vertices
-					line = scanner.nextLine(); // go to next line
 					tokens = line.split(" ");
 					
 					polygon.addVertex(Integer.parseInt(tokens[0]),
@@ -67,7 +62,7 @@ public class Isajanyan_Program1 {
 				
 				polygonArray.add(polygon); // add polygon to array
 			}
-			else if(tokens[0].equals("T")) {
+			else if(tokens[0].equals("c")) {
 				do { // store transitions
 					line = scanner.nextLine(); // go to next line
 					tokens = line.split(" ");
@@ -91,6 +86,9 @@ public class Isajanyan_Program1 {
 					}
 				} while(!scanner.hasNext("[P]") && scanner.hasNextLine());
 				
+			}
+			else if(tokens[0].equals("e")) {
+			
 			}
 			
 		} // while
@@ -151,8 +149,12 @@ public class Isajanyan_Program1 {
 		Display.create( );
 	}
 	
-	// line
-	private void drawLine(int x1, int y1, int x2, int y2) {
+	private void storePrimitive(char type, ) {
+	
+	}
+	
+	// adds attributes to array and stores it into PrimitivesList
+	private void storeLine(int x1, int y1, int x2, int y2) {
 		glColor3f(1.0f, 0.0f, 0.0f);
 		glPointSize(10);
 		
