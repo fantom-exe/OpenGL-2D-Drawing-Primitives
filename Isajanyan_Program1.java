@@ -134,8 +134,8 @@ public class Isajanyan_Program1 {
                 // draw primitives
 //                primitives.forEach(this::drawPrimitive);
                 
-                drawPrimitive(primitives.get(2));
-//                drawPrimitive(primitives.get(3));
+                drawPrimitive(primitives.get(2)); // debug
+//                drawPrimitive(primitives.get(3)); // debug
                 
                 Display.update();
                 Display.sync(60);
@@ -168,9 +168,8 @@ public class Isajanyan_Program1 {
     }
     
     // draw line
-    private void drawLine(float x0, float y0, float x1, float y1) {
+    private void drawLine(float x1, float y1, float x0, float y0) {
         glColor3f(1.0f, 0.0f, 0.0f);
-		glPointSize(10);
 		
 		/*
 		• dx - change in x
@@ -188,7 +187,7 @@ public class Isajanyan_Program1 {
               incrementUpRight = 2*(dy - dx),
               x = x0,
               y = y0;
-    
+        // debug
         System.out.println("dx "+dx); // debug
         System.out.println("dy "+dy); // debug
         System.out.println("d "+d); // debug
@@ -208,8 +207,8 @@ public class Isajanyan_Program1 {
                     x += 1;
                 }
                 
-                System.out.println(x+" "+y); // debug
                 glVertex2f(x, y); // plot points
+                System.out.println(x+" "+y); // debug
             }
         glEnd( );
         
