@@ -22,7 +22,9 @@ import java.util.Scanner;
 
 import static org.lwjgl.opengl.GL11.*;
 
-
+// remove
+// debug
+// new
 public class Isajanyan_Program1 {
     // stores all primitives
     private ArrayList<float[]> primitives = new ArrayList<>();
@@ -117,7 +119,7 @@ public class Isajanyan_Program1 {
         
         glMatrixMode(GL_PROJECTION);
         glLoadIdentity();
-        glOrtho(-320, 320, -240, 240, -1, 1);
+        glOrtho(0, 640, 0, 480, 1, -1);
         
 //        glMatrixMode(GL_MODELVIEW); // remove
 //        glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST); // remove
@@ -132,10 +134,10 @@ public class Isajanyan_Program1 {
                 glLoadIdentity( );
                 
                 // draw primitives
-                primitives.forEach(this::drawPrimitive);
-                
-//                drawPrimitive(primitives.get(2)); // debug
-//                drawPrimitive(primitives.get(3)); // debug
+//                primitives.forEach(this::drawPrimitive);
+
+                drawPrimitive(primitives.get(2)); // debug
+                drawPrimitive(primitives.get(3)); // debug
                 
                 Display.update();
                 Display.sync(60);
@@ -200,8 +202,8 @@ public class Isajanyan_Program1 {
             
             while(x < x1) {
                 if(d > 0) {
-//                    d += incrementUpRight;
-                    d -= 2*dx; // remove
+                    d += incrementUpRight;
+//                    d -= 2*dx; // new
                     x += 1;
                     y += 1;
                 }
