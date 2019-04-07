@@ -166,6 +166,7 @@ public class Isajanyan_Program1 {
     // draw line
     private void drawLine(float x0, float y0, float x1, float y1) {
         glColor3f(1.0f, 0.0f, 0.0f);
+		glPointSize(10);
 		
 		/*
 		• dx - change in x
@@ -189,18 +190,17 @@ public class Isajanyan_Program1 {
             
             while(x < x1) {
                 if(d > 0) {
+                    d += incrementUpRight;
                     x += 1;
                     y += 1;
                 }
                 else {
+                    d += incrementRight;
                     x += 1;
-//                    y -= 1;
                 }
                 
-                System.out.println(x+", "+y); // debug
+                System.out.println(x+" "+y); // debug
                 glVertex2f(x, y); // plot points
-                
-                d += incrementUpRight;
             }
         glEnd( );
         
@@ -211,7 +211,7 @@ public class Isajanyan_Program1 {
     
     }
     
-    // draw ellipse
+    // draw ellipses
     private void drawEllipse(float x, float y, float rx, float ry) {
     
     }
