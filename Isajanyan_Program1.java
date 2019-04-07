@@ -135,7 +135,7 @@ public class Isajanyan_Program1 {
 //                primitives.forEach(this::drawPrimitive);
                 
                 drawPrimitive(primitives.get(2)); // debug
-//                drawPrimitive(primitives.get(3)); // debug
+                drawPrimitive(primitives.get(3)); // debug
                 
                 Display.update();
                 Display.sync(60);
@@ -143,7 +143,7 @@ public class Isajanyan_Program1 {
                 e.printStackTrace();
             }
             
-            break; // debug
+//            break; // debug
         }
         
         Display.destroy( );
@@ -168,7 +168,7 @@ public class Isajanyan_Program1 {
     }
     
     // draw line
-    private void drawLine(float x1, float y1, float x0, float y0) {
+    private void drawLine(float x0, float y0, float x1, float y1) {
         glColor3f(1.0f, 0.0f, 0.0f);
 		
 		/*
@@ -209,6 +209,7 @@ public class Isajanyan_Program1 {
                 
                 glVertex2f(x, y); // plot points
                 System.out.println(x+" "+y); // debug
+                System.out.println("d "+d); // debug
             }
         glEnd( );
         
