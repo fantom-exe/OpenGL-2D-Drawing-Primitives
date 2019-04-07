@@ -136,13 +136,15 @@ public class Isajanyan_Program1 {
 //                primitives.forEach(this::drawPrimitive);
                 
                 drawPrimitive(primitives.get(2));
-                drawPrimitive(primitives.get(3));
+//                drawPrimitive(primitives.get(3));
                 
                 Display.update();
                 Display.sync(60);
             } catch(Exception e) {
                 e.printStackTrace();
             }
+            
+            break; // debug
         }
         
         Display.destroy( );
@@ -187,8 +189,13 @@ public class Isajanyan_Program1 {
               incrementUpRight = 2*(dy - dx),
               x = x0,
               y = y0;
+    
+        System.out.println("dx "+dx); // debug
+        System.out.println("dy "+dy); // debug
+        System.out.println("d "+d); // debug
         
-        glBegin(GL_LINE_LOOP);
+        glBegin(GL_POINTS);
+            System.out.println(x+" "+y); // debug
             glVertex2f(x, y); // plot points
             
             while(x < x1) {
