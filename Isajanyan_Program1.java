@@ -117,10 +117,10 @@ public class Isajanyan_Program1 {
         
         glMatrixMode(GL_PROJECTION);
         glLoadIdentity();
-        glOrtho(-320, 320, -240, 240, 1, -1);
+        glOrtho(-320, 320, -240, 240, -1, 1);
         
-        glMatrixMode(GL_MODELVIEW);
-        glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
+//        glMatrixMode(GL_MODELVIEW); // remove
+//        glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST); // remove
     }
     
     // render
@@ -133,7 +133,7 @@ public class Isajanyan_Program1 {
                 
                 // draw primitives
                 primitives.forEach(this::drawPrimitive);
-
+                
 //                drawPrimitive(primitives.get(2)); // debug
 //                drawPrimitive(primitives.get(3)); // debug
                 
@@ -200,7 +200,8 @@ public class Isajanyan_Program1 {
             
             while(x < x1) {
                 if(d > 0) {
-                    d += incrementUpRight;
+//                    d += incrementUpRight;
+                    d -= 2*dx; // remove
                     x += 1;
                     y += 1;
                 }
