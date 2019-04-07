@@ -134,7 +134,6 @@ public class Isajanyan_Program1 {
                 // draw primitives
                 primitives.forEach(this::drawPrimitive);
 
-//                drawLine(50, 50, 230, 150); // debug
 //                drawPrimitive(primitives.get(2)); // debug
 //                drawPrimitive(primitives.get(3)); // debug
                 
@@ -197,7 +196,7 @@ public class Isajanyan_Program1 {
         
         glBegin(GL_POINTS);
             System.out.println(x+" "+y); // debug
-            glVertex2f(x, y); // plot points
+            glVertex2f(x, y);
             
             while(x < x1) {
                 if(d > 0) {
@@ -210,10 +209,12 @@ public class Isajanyan_Program1 {
                     x += 1;
                 }
                 
-                glVertex2f(x, y); // plot points
+                glVertex2f(x, y);
                 System.out.println(x+" "+y); // debug
                 System.out.println("d "+d); // debug
             }
+            
+            glVertex2f(x, y);
         glEnd( );
     
     }
