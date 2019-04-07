@@ -203,7 +203,7 @@ public class Isajanyan_Program1 {
             while(x < x1) {
                 if(d > 0) {
                     d += incrementUpRight;
-//                    d -= 2*dx; // new
+//                    d -= 2*dx; // test
                     x += 1;
                     y += 1;
                 }
