@@ -133,7 +133,10 @@ public class Isajanyan_Program1 {
                 glLoadIdentity( );
                 
                 // draw primitives
-                primitives.forEach(this::drawPrimitive);
+//                primitives.forEach(this::drawPrimitive);
+                
+                drawPrimitive(primitives.get(2));
+                drawPrimitive(primitives.get(3));
                 
                 Display.update();
                 Display.sync(60);
@@ -185,7 +188,7 @@ public class Isajanyan_Program1 {
               x = x0,
               y = y0;
         
-        glBegin(GL_POINTS);
+        glBegin(GL_LINE_LOOP);
             glVertex2f(x, y); // plot points
             
             while(x < x1) {
