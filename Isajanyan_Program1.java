@@ -132,10 +132,10 @@ public class Isajanyan_Program1 {
                 glLoadIdentity( );
                 
                 // draw primitives
-//                primitives.forEach(this::drawPrimitive);
+                primitives.forEach(this::drawPrimitive);
 
 //                drawLine(50, 50, 230, 150); // debug
-                drawPrimitive(primitives.get(2)); // debug
+//                drawPrimitive(primitives.get(2)); // debug
 //                drawPrimitive(primitives.get(3)); // debug
                 
                 Display.update();
@@ -144,7 +144,7 @@ public class Isajanyan_Program1 {
                 e.printStackTrace();
             }
             
-            break; // debug
+//            break; // debug
         }
         
         Display.destroy( );
@@ -220,12 +220,16 @@ public class Isajanyan_Program1 {
     
     // draw circle
     private void drawCircle(float x, float y, float r) {
-    
+        glColor3f(0.0f, 0.0f, 1.0f);
+        
+        
     }
     
     // draw ellipses
     private void drawEllipse(float x, float y, float rx, float ry) {
-    
+        glColor3f(0.0f, 1.0f, 0.0f);
+        
+        
     }
     
     // main
