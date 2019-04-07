@@ -136,8 +136,8 @@ public class Isajanyan_Program1 {
                 // draw primitives
 //                primitives.forEach(this::drawPrimitive);
 
-                drawPrimitive(primitives.get(2)); // debug
-                drawPrimitive(primitives.get(3)); // debug
+                drawPrimitive(primitives.get(2)); // line 1 debug
+                drawPrimitive(primitives.get(3)); // line 2 debug
                 
                 Display.update();
                 Display.sync(60);
