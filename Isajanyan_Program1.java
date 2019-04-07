@@ -117,7 +117,6 @@ public class Isajanyan_Program1 {
         
         glMatrixMode(GL_PROJECTION);
         glLoadIdentity();
-        
         glOrtho(-320, 320, -240, 240, 1, -1);
         
         glMatrixMode(GL_MODELVIEW);
