@@ -133,8 +133,8 @@ public class Isajanyan_Program1 {
                 
                 // draw primitives
 //                primitives.forEach(this::drawPrimitive);
-                
-                drawPrimitive(primitives.get(2)); // debug
+
+//                drawPrimitive(primitives.get(2)); // debug
                 drawPrimitive(primitives.get(3)); // debug
                 
                 Display.update();
@@ -170,6 +170,7 @@ public class Isajanyan_Program1 {
     // draw line
     private void drawLine(float x0, float y0, float x1, float y1) {
         glColor3f(1.0f, 0.0f, 0.0f);
+		glPointSize(5);
 		
 		/*
 		• dx - change in x
@@ -212,7 +213,7 @@ public class Isajanyan_Program1 {
                 System.out.println("d "+d); // debug
             }
         glEnd( );
-        
+    
     }
     
     // draw circle
