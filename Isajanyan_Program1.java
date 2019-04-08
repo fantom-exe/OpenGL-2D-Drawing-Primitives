@@ -187,13 +187,57 @@ public class Isajanyan_Program1 {
               incrementRight   = 2*dy,
               incrementUpRight = 2*(dy - dx),
               x = x0,
-              y = y0;
+              y = y0,
+              temp;
         // debug
         System.out.println("dx "+dx); // debug
         System.out.println("dy "+dy); // debug
         System.out.println("d "+d); // debug
         System.out.println("incrementRight "+incrementRight); // debug
         System.out.println("incrementUpRight "+incrementUpRight); // debug
+        
+        // tests
+        if(Math.abs(dy) < Math.abs(dx)) {
+            if(x0 > x1) {
+                temp = x0;
+                x0 = x1;
+                x1 = temp;
+                temp = y0;
+                y0 = y1;
+                y1 = temp;
+            }
+            else {
+            
+            }
+            
+            /*
+              dx = x1 - x0
+              dy = y1 - y0
+              yi = 1
+              if dy < 0
+                yi = -1
+                dy = -dy
+              end if
+              D = 2*dy - dx
+              y = y0
+            
+              for x from x0 to x1
+                plot(x,y)
+                if D > 0
+                   y = y + yi
+                   D = D - 2*dx
+                end if
+                D = D + 2*dy
+             */
+            float d  = 2*dy - dx,
+                  incrementRight   = 2*dy,
+                  incrementUpRight = 2*(dy - dx),
+                  x = x0,
+                  y = y0;
+            
+            
+            
+        }
         
         glBegin(GL_POINTS);
             System.out.println(x+" "+y); // debug
@@ -217,7 +261,7 @@ public class Isajanyan_Program1 {
             
             glVertex2f(x, y);
         glEnd( );
-    
+        
     }
     
     // draw circle
