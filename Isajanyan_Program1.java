@@ -198,7 +198,7 @@ public class Isajanyan_Program1 {
         
         // tests
         if(Math.abs(dy) < Math.abs(dx)) {
-            if(x0 > x1) {
+            if(x0 > x1) { // reverse positions of x0 y0 with x1 y1
                 /*
                 plotLineLow(x1, y1, x0, y0)
                  */
@@ -208,12 +208,6 @@ public class Isajanyan_Program1 {
                 temp = y0;
                 y0 = y1;
                 y1 = temp;
-            }
-            else {
-                /*
-                plotLineLow(x0, y0, x1, y1)
-                 */
-                
             }
             
             /*
@@ -247,16 +241,18 @@ public class Isajanyan_Program1 {
             
         }
         else {
-            /*
-            if y0 > y1
-              plotLineHigh(x1, y1, x0, y0)
-            else
-              plotLineHigh(x0, y0, x1, y1)
-            end if
-             */
-            if(y0 > y1) {
-                
+            if(y0 > y1) { // reverse positions of x0 y0 with x1 y1
+                /*
+                plotLineHigh(x1, y1, x0, y0)
+                 */
+                temp = x0;
+                x0 = x1;
+                x1 = temp;
+                temp = y0;
+                y0 = y1;
+                y1 = temp;
             }
+            
             
         }
         
