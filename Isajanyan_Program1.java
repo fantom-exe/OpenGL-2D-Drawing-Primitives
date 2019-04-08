@@ -133,10 +133,10 @@ public class Isajanyan_Program1 {
                 glLoadIdentity( );
                 
                 // draw primitives
-//                primitives.forEach(this::drawPrimitive);
+                primitives.forEach(this::drawPrimitive);
 
-                drawPrimitive(primitives.get(2)); // line 1 debug
-                drawPrimitive(primitives.get(3)); // line 2 debug
+//                drawPrimitive(primitives.get(2)); // line 1 debug
+//                drawPrimitive(primitives.get(3)); // line 2 debug
                 
                 Display.update();
                 Display.sync(60);
@@ -199,9 +199,7 @@ public class Isajanyan_Program1 {
         // tests
         if(Math.abs(dy) < Math.abs(dx)) {
             if(x0 > x1) { // reverse positions of x0 y0 with x1 y1
-                /*
-                plotLineLow(x1, y1, x0, y0)
-                 */
+                // plotLineLow(x1, y1, x0, y0)
                 temp = x0;
                 x0 = x1;
                 x1 = temp;
@@ -232,6 +230,9 @@ public class Isajanyan_Program1 {
                     D = D + 2*dy
                 }
              */
+            float yi = 1;
+            
+            
             d  = 2*dy - dx;
             incrementRight   = 2*dy;
             incrementUpRight = 2*(dy - dx);
@@ -243,9 +244,7 @@ public class Isajanyan_Program1 {
         }
         else {
             if(y0 > y1) { // reverse positions of x0 y0 with x1 y1
-                /*
-                plotLineHigh(x1, y1, x0, y0)
-                 */
+                // plotLineHigh(x1, y1, x0, y0)
                 temp = x0;
                 x0 = x1;
                 x1 = temp;
