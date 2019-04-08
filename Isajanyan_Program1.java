@@ -24,7 +24,6 @@ import static org.lwjgl.opengl.GL11.*;
 
 // remove
 // debug
-// new
 public class Isajanyan_Program1 {
     // stores all primitives
     private ArrayList<float[]> primitives = new ArrayList<>();
@@ -121,8 +120,8 @@ public class Isajanyan_Program1 {
         glLoadIdentity();
         glOrtho(0, 640, 0, 480, 1, -1);
         
-//        glMatrixMode(GL_MODELVIEW); // remove
-//        glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST); // remove
+        glMatrixMode(GL_MODELVIEW);
+        glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
     }
     
     // render
@@ -203,7 +202,6 @@ public class Isajanyan_Program1 {
             while(x < x1) {
                 if(d > 0) {
                     d += incrementUpRight;
-//                    d -= 2*dx; // test
                     x += 1;
                     y += 1;
                 }
