@@ -211,25 +211,26 @@ public class Isajanyan_Program1 {
             }
             
             /*
-            yi = 1
-            
-            if dy < 0
-                yi = -1
-                dy = -dy
-            end if
-            
-            D = 2*dy - dx
-            y = y0
-            
-            for x from x0 to x1
-                plot(x,y)
+                yi = 1
                 
-                if D > 0
-                    y = y + yi
-                    D = D - 2*dx
+                if dy < 0
+                    yi = -1
+                    dy = -dy
                 end if
                 
-                D = D + 2*dy
+                D = 2*dy - dx
+                y = y0
+                
+                for x from x0 to x1 {
+                    plot(x,y)
+                    
+                    if D > 0
+                        y = y + yi
+                        D = D - 2*dx
+                    end if
+                    
+                    D = D + 2*dy
+                }
              */
             d  = 2*dy - dx;
             incrementRight   = 2*dy;
@@ -253,6 +254,33 @@ public class Isajanyan_Program1 {
                 y1 = temp;
             }
             
+            /*
+                xi = 1
+                
+                if dx < 0
+                    xi = -1
+                    dx = -dx
+                end if
+                
+                D = 2*dx - dy
+                x = x0
+                
+                for y from y0 to y1 {
+                    plot(x,y)
+                    
+                    if D > 0
+                       x = x + xi
+                       D = D - 2*dy
+                    end if
+                    
+                    D = D + 2*dx
+                }
+             */
+            d  = 2*dy - dx;
+            incrementRight   = 2*dy;
+            incrementUpRight = 2*(dy - dx);
+            x = x0;
+            y = y0;
             
         }
         
