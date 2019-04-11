@@ -184,33 +184,32 @@ public class Isajanyan_Program1 {
         float dx = x1 - x0,
               dy = y1 - y0,
               d  = 2*dy - dx,
-              incrementRight   = 2*dy,
-              incrementUpRight = 2*(dy - dx),
+//              incrementRight   = 2*dy,
+//              incrementUpRight = 2*(dy - dx),
               x = x0,
               y = y0,
+              i = 1,
               temp;
         // debug
         System.out.println("dx "+dx); // debug
         System.out.println("dy "+dy); // debug
-//        System.out.println("d "+d); // debug
+        System.out.println("d "+d); // debug
 //        System.out.println("incrementRight "+incrementRight); // debug
 //        System.out.println("incrementUpRight "+incrementUpRight); // debug
         
         // tests
-        if(Math.abs(dy) < Math.abs(dx)) {
-            // plotLineLow (x1, y1, x0, y0)
-            if(x0 > x1) { // reverse positions of x0 y0 with x1 y1
+        if(Math.abs(dy) < Math.abs(dx)) { // plotLineLow (x1, y1, x0, y0)
+            if(x0 < x1) { // reverse positions of x0 y0 with x1 y1
                 temp = x0;
                 x0 = x1;
                 x1 = temp;
+                
                 temp = y0;
                 y0 = y1;
                 y1 = temp;
             }
             
             /*
-                i = 1
-                
                 if dy < 0
                     i = -1
                     dy = -dy
@@ -230,36 +229,33 @@ public class Isajanyan_Program1 {
                     D = D + 2*dy
                 }
              */
-            float yi = 1;
             
             if(dy < 0 || dx < 0) {
-                yi = -1;
+                i = -1;
                 dy = -dy;
             }
             
             d  = 2*dy - dx;
-            incrementRight   = 2*dy;
-            incrementUpRight = 2*(dy - dx);
+//            incrementRight   = 2*dy;
+//            incrementUpRight = 2*(dy - dx);
             x = x0;
             y = y0;
             
         }
-        else {
-            // plotLineHigh (x1, y1, x0, y0)
-            if(y0 > y1) { // reverse positions of x0 y0 with x1 y1
+        else { // plotLineHigh (x1, y1, x0, y0)
+            if(y0 < y1) { // reverse positions of x0 y0 with x1 y1
                 temp = x0;
                 x0 = x1;
                 x1 = temp;
+                
                 temp = y0;
                 y0 = y1;
                 y1 = temp;
             }
             
             /*
-                i = 1
-                
                 if dx < 0
-                    xi = -1
+                    i = -1
                     dx = -dx
                 end if
                 
@@ -278,8 +274,8 @@ public class Isajanyan_Program1 {
                 }
              */
             d  = 2*dy - dx;
-            incrementRight   = 2*dy;
-            incrementUpRight = 2*(dy - dx);
+//            incrementRight   = 2*dy;
+//            incrementUpRight = 2*(dy - dx);
             x = x0;
             y = y0;
             
