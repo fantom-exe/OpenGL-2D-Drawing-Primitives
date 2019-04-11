@@ -133,9 +133,9 @@ public class Isajanyan_Program1 {
                 glLoadIdentity( );
                 
                 // draw primitives
-                primitives.forEach(this::drawPrimitive);
+//                primitives.forEach(this::drawPrimitive);
 
-//                drawPrimitive(primitives.get(2)); // line 1 debug
+                drawPrimitive(primitives.get(2)); // line 1 debug
 //                drawPrimitive(primitives.get(3)); // line 2 debug
                 
                 Display.update();
@@ -144,7 +144,7 @@ public class Isajanyan_Program1 {
                 e.printStackTrace();
             }
             
-//            break; // debug
+            break; // debug
         }
         
         Display.destroy( );
@@ -198,8 +198,8 @@ public class Isajanyan_Program1 {
         
         // tests
         if(Math.abs(dy) < Math.abs(dx)) {
+            // plotLineLow (x1, y1, x0, y0)
             if(x0 > x1) { // reverse positions of x0 y0 with x1 y1
-                // plotLineLow(x1, y1, x0, y0)
                 temp = x0;
                 x0 = x1;
                 x1 = temp;
@@ -209,10 +209,10 @@ public class Isajanyan_Program1 {
             }
             
             /*
-                yi = 1
+                i = 1
                 
                 if dy < 0
-                    yi = -1
+                    i = -1
                     dy = -dy
                 end if
                 
@@ -223,7 +223,7 @@ public class Isajanyan_Program1 {
                     plot(x,y)
                     
                     if D > 0
-                        y = y + yi
+                        y = y + i
                         D = D - 2*dx
                     end if
                     
@@ -232,6 +232,10 @@ public class Isajanyan_Program1 {
              */
             float yi = 1;
             
+            if(dy < 0 || dx < 0) {
+                yi = -1;
+                dy = -dy;
+            }
             
             d  = 2*dy - dx;
             incrementRight   = 2*dy;
@@ -239,12 +243,10 @@ public class Isajanyan_Program1 {
             x = x0;
             y = y0;
             
-            
-            
         }
         else {
+            // plotLineHigh (x1, y1, x0, y0)
             if(y0 > y1) { // reverse positions of x0 y0 with x1 y1
-                // plotLineHigh(x1, y1, x0, y0)
                 temp = x0;
                 x0 = x1;
                 x1 = temp;
@@ -254,7 +256,7 @@ public class Isajanyan_Program1 {
             }
             
             /*
-                xi = 1
+                i = 1
                 
                 if dx < 0
                     xi = -1
@@ -268,7 +270,7 @@ public class Isajanyan_Program1 {
                     plot(x,y)
                     
                     if D > 0
-                       x = x + xi
+                       x = x + i
                        D = D - 2*dy
                     end if
                     
