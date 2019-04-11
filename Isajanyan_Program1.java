@@ -202,9 +202,13 @@ public class Isajanyan_Program1 {
                 y0 = y1;
                 y1 = temp;
             }
+    
+            // swap dx with dy
+            temp = dx;
+            dx   = dy;
+            dy   = temp;
             
             /*
-                D = 2*dy - dx
                 
                 for x from x0 to x1 {
                     
@@ -229,13 +233,7 @@ public class Isajanyan_Program1 {
                 y1 = temp;
             }
             
-            // swap dx with dy
-            temp = dx;
-            dx = dy;
-            dy = temp;
-            
             /*
-                D = 2*dx - dy
                 
                 for y from y0 to y1 {
                     
@@ -253,11 +251,13 @@ public class Isajanyan_Program1 {
         
         if(dx < 0 || dy < 0) {
             i = -1;
-            dx = -dx;
+            dy = -dy;
         }
         
         x = x0;
         y = y0;
+        
+        d = 2*dy - dx;
         
         // plot
         glBegin(GL_POINTS);
@@ -270,12 +270,8 @@ public class Isajanyan_Program1 {
                     d -= 2*dx;
                 }
                 
-                glVertex2f(x, y);
-                System.out.println(x+" "+y); // debug
-                System.out.println("d "+d); // debug
+                d += 2*dy;
             }
-            
-            glVertex2f(x, y);
         glEnd( );
         
     }
