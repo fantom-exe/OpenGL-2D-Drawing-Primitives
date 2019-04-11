@@ -181,21 +181,19 @@ public class Isajanyan_Program1 {
 		 */
         float dx = x1 - x0,
               dy = y1 - y0,
-              d  = 2*dy - dx,
-//              incrementRight   = 2*dy,
-//              incrementUpRight = 2*(dy - dx),
-              x = x0,
-              y = y0,
+              d,
+              x,
+              y,
               i = 1,
               temp;
         // debug
         System.out.println("dx "+dx); // debug
         System.out.println("dy "+dy); // debug
-        System.out.println("d "+d); // debug
+//        System.out.println("d "+d); // debug
         
-        // tests
+        // tests begin
         if(Math.abs(dy) < Math.abs(dx)) { // plotLineLow (x1, y1, x0, y0)
-            if(x0 > x1) { // reverse positions of x0 y0 with x1 y1
+            if(x0 > x1) { // swap x0 y0 with x1 y1
                 temp = x0;
                 x0 = x1;
                 x1 = temp;
@@ -205,14 +203,10 @@ public class Isajanyan_Program1 {
                 y1 = temp;
             }
             
-            
-            
             /*
                 D = 2*dy - dx
-                y = y0
                 
                 for x from x0 to x1 {
-                    plot(x,y)
                     
                     if D > 0
                         y = y + i
@@ -225,7 +219,7 @@ public class Isajanyan_Program1 {
             
         }
         else { // plotLineHigh (x1, y1, x0, y0)
-            if(y0 > y1) { // reverse positions of x0 y0 with x1 y1
+            if(y0 > y1) { // swap x0 y0 with x1 y1
                 temp = x0;
                 x0 = x1;
                 x1 = temp;
@@ -235,14 +229,15 @@ public class Isajanyan_Program1 {
                 y1 = temp;
             }
             
-            
+            // swap dx with dy
+            temp = dx;
+            dx = dy;
+            dy = temp;
             
             /*
                 D = 2*dx - dy
-                x = x0
                 
                 for y from y0 to y1 {
-                    plot(x,y)
                     
                     if D > 0
                        x = x + i
@@ -254,6 +249,7 @@ public class Isajanyan_Program1 {
              */
             
         }
+        // tests end
         
         if(dx < 0 || dy < 0) {
             i = -1;
@@ -263,11 +259,12 @@ public class Isajanyan_Program1 {
         x = x0;
         y = y0;
         
+        // plot
         glBegin(GL_POINTS);
-            System.out.println(x+" "+y); // debug
-            glVertex2f(x, y);
-            
             while(x < x1) {
+                System.out.println(x+" "+y); // debug
+                glVertex2f(x, y);
+                
                 if(d > 0) {
                     x += i;
                     d -= 2*dx;
