@@ -203,11 +203,6 @@ public class Isajanyan_Program1 {
                 y1 = temp;
             }
     
-            // swap dx with dy
-            temp = dx;
-            dx   = dy;
-            dy   = temp;
-            
             /*
                 
                 for x from x0 to x1 {
@@ -232,6 +227,11 @@ public class Isajanyan_Program1 {
                 y0 = y1;
                 y1 = temp;
             }
+    
+            // swap dx with dy
+            temp = dx;
+            dx   = dy;
+            dy   = temp;
             
             /*
                 
