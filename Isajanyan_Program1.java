@@ -176,8 +176,6 @@ public class Isajanyan_Program1 {
 		• dx - change in x
 		• dy - change in y
 		• d - the distance to the midpoint
-		• incrementRight - how much to move right (E)
-		• incrementUpRight - how much to move up and to the right (NE)
 		• x - the current x value to plot
 		• y - the current y value to plot
 		 */
@@ -194,12 +192,10 @@ public class Isajanyan_Program1 {
         System.out.println("dx "+dx); // debug
         System.out.println("dy "+dy); // debug
         System.out.println("d "+d); // debug
-//        System.out.println("incrementRight "+incrementRight); // debug
-//        System.out.println("incrementUpRight "+incrementUpRight); // debug
         
         // tests
         if(Math.abs(dy) < Math.abs(dx)) { // plotLineLow (x1, y1, x0, y0)
-            if(x0 < x1) { // reverse positions of x0 y0 with x1 y1
+            if(x0 > x1) { // reverse positions of x0 y0 with x1 y1
                 temp = x0;
                 x0 = x1;
                 x1 = temp;
@@ -209,12 +205,9 @@ public class Isajanyan_Program1 {
                 y1 = temp;
             }
             
+            
+            
             /*
-                if dy < 0
-                    i = -1
-                    dy = -dy
-                end if
-                
                 D = 2*dy - dx
                 y = y0
                 
@@ -230,20 +223,9 @@ public class Isajanyan_Program1 {
                 }
              */
             
-            if(dy < 0 || dx < 0) {
-                i = -1;
-                dy = -dy;
-            }
-            
-            d  = 2*dy - dx;
-//            incrementRight   = 2*dy;
-//            incrementUpRight = 2*(dy - dx);
-            x = x0;
-            y = y0;
-            
         }
         else { // plotLineHigh (x1, y1, x0, y0)
-            if(y0 < y1) { // reverse positions of x0 y0 with x1 y1
+            if(y0 > y1) { // reverse positions of x0 y0 with x1 y1
                 temp = x0;
                 x0 = x1;
                 x1 = temp;
@@ -253,12 +235,9 @@ public class Isajanyan_Program1 {
                 y1 = temp;
             }
             
+            
+            
             /*
-                if dx < 0
-                    i = -1
-                    dx = -dx
-                end if
-                
                 D = 2*dx - dy
                 x = x0
                 
@@ -273,13 +252,16 @@ public class Isajanyan_Program1 {
                     D = D + 2*dx
                 }
              */
-            d  = 2*dy - dx;
-//            incrementRight   = 2*dy;
-//            incrementUpRight = 2*(dy - dx);
-            x = x0;
-            y = y0;
             
         }
+        
+        if(dx < 0 || dy < 0) {
+            i = -1;
+            dx = -dx;
+        }
+        
+        x = x0;
+        y = y0;
         
         glBegin(GL_POINTS);
             System.out.println(x+" "+y); // debug
@@ -287,13 +269,8 @@ public class Isajanyan_Program1 {
             
             while(x < x1) {
                 if(d > 0) {
-                    d += incrementUpRight;
-                    x += 1;
-                    y += 1;
-                }
-                else {
-                    d += incrementRight;
-                    x += 1;
+                    x += i;
+                    d -= 2*dx;
                 }
                 
                 glVertex2f(x, y);
