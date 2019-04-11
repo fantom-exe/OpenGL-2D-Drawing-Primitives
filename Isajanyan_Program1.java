@@ -133,9 +133,9 @@ public class Isajanyan_Program1 {
                 glLoadIdentity( );
                 
                 // draw primitives
-//                primitives.forEach(this::drawPrimitive);
+                primitives.forEach(this::drawPrimitive);
 
-                drawPrimitive(primitives.get(2)); // line 1 debug
+//                drawPrimitive(primitives.get(2)); // line 1 debug
 //                drawPrimitive(primitives.get(3)); // line 2 debug
                 
                 Display.update();
@@ -144,7 +144,7 @@ public class Isajanyan_Program1 {
                 e.printStackTrace();
             }
             
-            break; // debug
+//            break; // debug
         }
         
         Display.destroy( );
