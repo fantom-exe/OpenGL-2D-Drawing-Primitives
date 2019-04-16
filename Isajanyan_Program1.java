@@ -271,24 +271,29 @@ public class Isajanyan_Program1 {
               dy = y1 - y0,
               yi = 1;
         
-        if (dy < 0) {
+        if(dy < 0) {
             yi = -1;
             dy = -dy;
         }
         
         float d = 2*dy - dx,
+              x = x0,
               y = y0;
-
-        for (x from x0 to x1){
-            plot(x, y);
-            
-            if (d > 0) {
-                y = y + yi;
-                d -= 2 * dx;
+    
+        // plot
+        glBegin(GL_POINTS);
+            while(x <= x1) {
+                glVertex2f(x, y);
+                
+                if (d > 0) {
+                    y = y + yi;
+                    d -= 2 * dx;
+                }
+                
+                d += 2 * dy;
+                x++;
             }
-            
-            d += 2 * dy;
-        }
+        glEnd();
     }
     
     private void plotLineHigh(float x1, float y1, float x0, float y0) {
