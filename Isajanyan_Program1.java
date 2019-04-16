@@ -204,19 +204,7 @@ public class Isajanyan_Program1 {
                 y0 = y1;
                 y1 = temp;
             }
-    
-            /*
-                
-                for x from x0 to x1 {
-                    
-                    if D > 0
-                        y = y + i
-                        D = D - 2*dx
-                    end if
-                    
-                    D = D + 2*dy
-                }
-             */
+            
             
         }
         else { // plotLineHigh (x1, y1, x0, y0)
@@ -276,6 +264,31 @@ public class Isajanyan_Program1 {
             }
         glEnd( );
         
+    }
+    
+    private void plotLineLow(float x0, float y0, float x1, float y1) {
+        float dx = x1 - x0,
+              dy = y1 - y0,
+              yi = 1;
+        
+        //  if dy < 0
+        //    yi = -1
+        //    dy = -dy
+        //  end if
+        //  D = 2*dy - dx
+        //  y = y0
+        //
+        //  for x from x0 to x1
+        //    plot(x,y)
+        //    if D > 0
+        //       y = y + yi
+        //       D = D - 2*dx
+        //    end if
+        //    D = D + 2*dy
+    }
+    
+    private void plotLineHigh(float x1, float y1, float x0, float y0) {
+    
     }
     
     // draw circle
