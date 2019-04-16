@@ -173,11 +173,13 @@ public class Isajanyan_Program1 {
         glColor3f(1.0f, 0.0f, 0.0f);
 		
 		/*
-		• dx - change in x
-		• dy - change in y
-		• d - the distance to the midpoint
-		• x - the current x value to plot
-		• y - the current y value to plot
+		  dx - change in x
+		  dy - change in y
+		  d - the distance to the midpoint
+		  x - the current x value to plot
+		  y - the current y value to plot
+          i - how much to add to x/y
+          temp - temporary variable
 		 */
         float dx = x1 - x0,
               dy = y1 - y0,
