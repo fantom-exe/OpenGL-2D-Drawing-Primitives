@@ -291,13 +291,39 @@ public class Isajanyan_Program1 {
                 }
                 
                 d += 2 * dy;
-                x++;
+                x += 1;
             }
         glEnd();
     }
     
-    private void plotLineHigh(float x1, float y1, float x0, float y0) {
-    
+    private void plotLineHigh(float x0, float y0, float x1, float y1) {
+        float dx = x1 - x0,
+              dy = y1 - y0,
+              xi = 1;
+        
+        if(dx < 0) {
+          xi = -1;
+          dx = -dx;
+        }
+        
+        float d = 2*dx - dy,
+              x = x0,
+              y = y0;
+        
+        // plot
+        glBegin(GL_POINTS);
+            while(y <= y1) {
+                glVertex2f(x, y);
+                
+                if(d > 0) {
+                    x = x + xi;
+                    d -= 2 * dy;
+                }
+                
+                d += 2 * dx;
+                y += 1;
+            }
+        glEnd();
     }
     
     // draw circle
