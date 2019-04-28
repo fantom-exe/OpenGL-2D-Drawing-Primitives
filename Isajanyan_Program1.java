@@ -260,12 +260,26 @@ public class Isajanyan_Program1 {
     private void drawCircle(float x, float y, float r) {
         glColor3f(0.0f, 0.0f, 1.0f);
         
-    
-        // debug
-        System.out.println("x "+x); // debug
-        System.out.println("y "+y); // debug
-        System.out.println("r "+r); // debug
+        float radius = r,
+              plotX  = x,
+              plotY  = y,
+              theta  = 0,
+              twoPI  = (float) (2 * Math.PI);
         
+        do {
+            plotX = (float) (r * Math.cos(theta));
+            plotY = (float) (r * Math.sin(theta));
+            
+            // plot
+            glBegin(GL_POINTS);
+                glVertex2f(plotX, plotY);
+            glEnd();
+            
+            theta += 0.1;
+            
+            System.out.println("(x, y) "+x); // debug
+        }
+        while(theta <= twoPI);
         
     }
     // end draw circle
