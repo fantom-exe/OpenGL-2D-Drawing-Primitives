@@ -133,9 +133,8 @@ public class Isajanyan_Program1 {
                 glLoadIdentity( );
                 
                 // draw primitives
-//                primitives.forEach(this::drawPrimitive);
-
-                drawPrimitive(primitives.get(0)); //  debug
+                primitives.forEach(this::drawPrimitive);
+//                drawPrimitive(primitives.get(0)); //  debug
                 
                 Display.update();
                 Display.sync(60);
@@ -257,30 +256,28 @@ public class Isajanyan_Program1 {
     
     
     // begin draw circle
-    private void drawCircle(float x, float y, float r) {
+    private void drawCircle(float x, float y, float radius) {
         glColor3f(0.0f, 0.0f, 1.0f);
         
-        float radius = r,
-              plotX  = x,
+        float plotX  = x,
               plotY  = y,
               theta  = 0,
               twoPI  = (float) (2 * Math.PI);
-        
-        do {
-            plotX = (float) (r * Math.cos(theta));
-            plotY = (float) (r * Math.sin(theta));
-            
-            // plot
-            glBegin(GL_POINTS);
+    
+        glBegin(GL_POINTS);
+            do {
+                plotX = (float) (radius * Math.cos(theta));
+                plotY = (float) (radius * Math.sin(theta));
+                
+                // plot
                 glVertex2f(plotX, plotY);
-            glEnd();
-            
-            theta += 0.1;
-            
-            System.out.println("(x, y) "+x); // debug
-        }
-        while(theta <= twoPI);
-        
+                
+                theta += 0.1;
+                
+                System.out.println("(x, y) "+x+" "+y); // debug
+            }
+            while(theta <= twoPI);
+        glEnd();
     }
     // end draw circle
     
