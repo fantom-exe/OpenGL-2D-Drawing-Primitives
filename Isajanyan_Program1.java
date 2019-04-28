@@ -161,7 +161,6 @@ public class Isajanyan_Program1 {
                 drawEllipse(floats[1], floats[2], floats[3], floats[4]);
                 break;
             default:
-                System.out.println("wtf"); // debug
                 break;
         }
     }
@@ -259,24 +258,35 @@ public class Isajanyan_Program1 {
     private void drawCircle(float x, float y, float radius) {
         glColor3f(0.0f, 0.0f, 1.0f);
         
-        float plotX  = x,
-              plotY  = y,
-              theta  = 0,
-              twoPI  = (float) (2 * Math.PI);
-    
+        // init values
+        float plotX  = 0,
+              plotY  = radius,
+              p      = 5f/4f - radius; // decision parameter
+//              theta  = 0,
+//              twoPI  = (float) (2 * Math.PI);
+        
+        // plot
         glBegin(GL_POINTS);
             do {
-                plotX = (float) (radius * Math.cos(theta));
-                plotY = (float) (radius * Math.sin(theta));
+                if(p < 0) {
+                    p += 2*plotX + 1;
+                }
+                else {
+                    plotX += 1;
+                    plotY -= 1;
+                    p += 2*plotX + 1 - 2*plotY;
+                }
                 
                 // plot
-                glVertex2f(plotX, plotY);
+                glVertex2f(plotX + x, plotY + y);
                 
-                theta += 0.1;
+//                plotX = (float) (radius * Math.cos(theta));
+//                plotY = (float) (radius * Math.sin(theta));
+//                theta += 0.1;
                 
-                System.out.println("(x, y) "+x+" "+y); // debug
+                System.out.println("(x, y) "+(plotX+x)+" "+(plotY+y)); // debug
             }
-            while(theta <= twoPI);
+            while(plotX >= plotY);
         glEnd();
     }
     // end draw circle
