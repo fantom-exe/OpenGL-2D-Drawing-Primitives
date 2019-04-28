@@ -133,10 +133,9 @@ public class Isajanyan_Program1 {
                 glLoadIdentity( );
                 
                 // draw primitives
-                primitives.forEach(this::drawPrimitive);
+//                primitives.forEach(this::drawPrimitive);
 
-//                drawPrimitive(primitives.get(2)); // line 1 debug
-//                drawPrimitive(primitives.get(3)); // line 2 debug
+                drawPrimitive(primitives.get(0)); //  debug
                 
                 Display.update();
                 Display.sync(60);
@@ -168,28 +167,15 @@ public class Isajanyan_Program1 {
         }
     }
     
-    // draw line
+    // begin draw line
     private void drawLine(float x0, float y0, float x1, float y1) {
         glColor3f(1.0f, 0.0f, 0.0f);
 		
-		/*
-		  dx - change in x
-		  dy - change in y
-		  d - the distance to the midpoint
-		  x - the current x value to plot
-		  y - the current y value to plot
-          i - how much to add to x/y
-          temp - temporary variable
-		 */
         float dx = x1 - x0,
               dy = y1 - y0;
-        // debug
-        System.out.println("dx "+dx); // debug
-        System.out.println("dy "+dy); // debug
-//        System.out.println("d "+d); // debug
         
-        // tests begin
-        if(Math.abs(dy) < Math.abs(dx)) { // plotLineLow (x1, y1, x0, y0)
+        // tests
+        if(Math.abs(dy) < Math.abs(dx)) {
             if(x0 > x1) {
                 plotLineLow(x1, y1, x0, y0);
             }
@@ -197,7 +183,7 @@ public class Isajanyan_Program1 {
                 plotLineLow(x0, y0, x1, y1);
             }
         }
-        else { // plotLineHigh (x1, y1, x0, y0)
+        else {
             if(y0 > y1) {
                 plotLineHigh(x1, y1, x0, y0);
             }
@@ -205,7 +191,6 @@ public class Isajanyan_Program1 {
                 plotLineHigh(x0, y0, x1, y1);
             }
         }
-        // tests end
         
     }
     
@@ -268,13 +253,23 @@ public class Isajanyan_Program1 {
             }
         glEnd();
     }
+    // end draw line
     
-    // draw circle
+    
+    // begin draw circle
     private void drawCircle(float x, float y, float r) {
         glColor3f(0.0f, 0.0f, 1.0f);
         
+    
+        // debug
+        System.out.println("x "+x); // debug
+        System.out.println("y "+y); // debug
+        System.out.println("r "+r); // debug
+        
         
     }
+    // end draw circle
+    
     
     // draw ellipses
     private void drawEllipse(float x, float y, float rx, float ry) {
@@ -282,6 +277,8 @@ public class Isajanyan_Program1 {
         
         
     }
+    // end draw ellipse
+    
     
     // main
     public static void main(String[] args) {
