@@ -182,12 +182,7 @@ public class Isajanyan_Program1 {
           temp - temporary variable
 		 */
         float dx = x1 - x0,
-              dy = y1 - y0,
-              d,
-              x,
-              y,
-              i = 1,
-              temp;
+              dy = y1 - y0;
         // debug
         System.out.println("dx "+dx); // debug
         System.out.println("dy "+dy); // debug
@@ -195,74 +190,22 @@ public class Isajanyan_Program1 {
         
         // tests begin
         if(Math.abs(dy) < Math.abs(dx)) { // plotLineLow (x1, y1, x0, y0)
-            if(x0 > x1) { // swap x0 y0 with x1 y1
-                temp = x0;
-                x0 = x1;
-                x1 = temp;
-                
-                temp = y0;
-                y0 = y1;
-                y1 = temp;
+            if(x0 > x1) {
+                plotLineLow(x1, y1, x0, y0);
             }
-            
-            
+            else {
+                plotLineLow(x0, y0, x1, y1);
+            }
         }
         else { // plotLineHigh (x1, y1, x0, y0)
-            if(y0 > y1) { // swap x0 y0 with x1 y1
-                temp = x0;
-                x0 = x1;
-                x1 = temp;
-                
-                temp = y0;
-                y0 = y1;
-                y1 = temp;
+            if(y0 > y1) {
+                plotLineHigh(x1, y1, x0, y0);
             }
-    
-            // swap dx with dy
-            temp = dx;
-            dx   = dy;
-            dy   = temp;
-            
-            /*
-                
-                for y from y0 to y1 {
-                    
-                    if D > 0
-                       x = x + i
-                       D = D - 2*dy
-                    end if
-                    
-                    D = D + 2*dx
-                }
-             */
-            
+            else {
+                plotLineHigh(x0, y0, x1, y1);
+            }
         }
         // tests end
-        
-        if(dx < 0 || dy < 0) {
-            i = -1;
-            dy = -dy;
-        }
-        
-        x = x0;
-        y = y0;
-        
-        d = 2*dy - dx;
-        
-        // plot
-        glBegin(GL_POINTS);
-            while(x < x1) {
-                System.out.println(x+" "+y); // debug
-                glVertex2f(x, y);
-                
-                if(d > 0) {
-                    x += i;
-                    d -= 2*dx;
-                }
-                
-                d += 2*dy;
-            }
-        glEnd( );
         
     }
     
