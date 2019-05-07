@@ -255,38 +255,16 @@ public class Isajanyan_Program1 {
     
     
     // begin draw circle
-    private void drawCircle(float x, float y, float radius) {
+    private void drawCircle(float x, float y, float r) {
         glColor3f(0.0f, 0.0f, 1.0f);
         
         // init values
-        float plotX  = radius,
-              plotY  = 0,
-              d      = 3 - (2 * radius); // decision parameter
+        float plotX  = 0,
+              plotY  = r,
+              d      = 3 - (2 * r); // decision parameter
         
         // plot
-//        glBegin(GL_POINTS);
         plotCircle(x, y, plotX, plotY);
-//            do {
-//                if(p < 0) {
-//                    p += 2*plotX + 1;
-//                }
-//                else {
-//                    plotX += 1;
-//                    plotY -= 1;
-//                    p += 2*plotX + 1 - 2*plotY;
-//                }
-//
-//                // plot
-//                glVertex2f(plotX + x, plotY + y);
-//
-////                plotX = (float) (radius * Math.cos(theta));
-////                plotY = (float) (radius * Math.sin(theta));
-////                theta += 0.1;
-//
-//                System.out.println("(x, y) "+(plotX+x)+" "+(plotY+y)); // debug
-//            }
-//            while(plotX >= plotY);
-//        glEnd();
     }
     
     private void plotCircle(float centerX, float centerY, float plotX, float plotY) {
