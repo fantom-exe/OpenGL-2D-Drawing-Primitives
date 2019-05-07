@@ -175,24 +175,24 @@ public class Isajanyan_Program1 {
         // tests
         if(Math.abs(dy) < Math.abs(dx)) {
             if(x0 > x1) {
-                lineLow(x1, y1, x0, y0);
+                plotLineLow(x1, y1, x0, y0);
             }
             else {
-                lineLow(x0, y0, x1, y1);
+                plotLineLow(x0, y0, x1, y1);
             }
         }
         else {
             if(y0 > y1) {
-                lineHigh(x1, y1, x0, y0);
+                plotLineHigh(x1, y1, x0, y0);
             }
             else {
-                lineHigh(x0, y0, x1, y1);
+                plotLineHigh(x0, y0, x1, y1);
             }
         }
         
     }
     
-    private void lineLow(float x0, float y0, float x1, float y1) {
+    private void plotLineLow(float x0, float y0, float x1, float y1) {
         float dx = x1 - x0,
               dy = y1 - y0,
               yi = 1;
@@ -222,7 +222,7 @@ public class Isajanyan_Program1 {
         glEnd();
     }
     
-    private void lineHigh(float x0, float y0, float x1, float y1) {
+    private void plotLineHigh(float x0, float y0, float x1, float y1) {
         float dx = x1 - x0,
               dy = y1 - y0,
               xi = 1;
@@ -264,27 +264,41 @@ public class Isajanyan_Program1 {
               d      = 3 - (2 * radius); // decision parameter
         
         // plot
+//        glBegin(GL_POINTS);
+        plotCircle(x, y, plotX, plotY);
+//            do {
+//                if(p < 0) {
+//                    p += 2*plotX + 1;
+//                }
+//                else {
+//                    plotX += 1;
+//                    plotY -= 1;
+//                    p += 2*plotX + 1 - 2*plotY;
+//                }
+//
+//                // plot
+//                glVertex2f(plotX + x, plotY + y);
+//
+////                plotX = (float) (radius * Math.cos(theta));
+////                plotY = (float) (radius * Math.sin(theta));
+////                theta += 0.1;
+//
+//                System.out.println("(x, y) "+(plotX+x)+" "+(plotY+y)); // debug
+//            }
+//            while(plotX >= plotY);
+//        glEnd();
+    }
+    
+    private void plotCircle(float centerX, float centerY, float plotX, float plotY) {
         glBegin(GL_POINTS);
-            do {
-                if(p < 0) {
-                    p += 2*plotX + 1;
-                }
-                else {
-                    plotX += 1;
-                    plotY -= 1;
-                    p += 2*plotX + 1 - 2*plotY;
-                }
-                
-                // plot
-                glVertex2f(plotX + x, plotY + y);
-                
-//                plotX = (float) (radius * Math.cos(theta));
-//                plotY = (float) (radius * Math.sin(theta));
-//                theta += 0.1;
-                
-                System.out.println("(x, y) "+(plotX+x)+" "+(plotY+y)); // debug
-            }
-            while(plotX >= plotY);
+            glVertex2f(centerX+plotX, centerY+plotY);
+            glVertex2f(centerX-plotX, centerY+plotY);
+            glVertex2f(centerX+plotX, centerY-plotY);
+            glVertex2f(centerX-plotX, centerY-plotY);
+            glVertex2f(centerX+plotY, centerY+plotX);
+            glVertex2f(centerX-plotY, centerY+plotX);
+            glVertex2f(centerX+plotY, centerY-plotX);
+            glVertex2f(centerX-plotY, centerY-plotX);
         glEnd();
     }
     // end draw circle
