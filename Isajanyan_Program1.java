@@ -294,10 +294,44 @@ public class Isajanyan_Program1 {
     
     
     // draw ellipses
-    private void drawEllipse(float x, float y, float rx, float ry) {
+    private void drawEllipse(float centerX, float centerY, float radiusX, float radiusY) {
         glColor3f(0.0f, 1.0f, 0.0f);
+    
+        // init values
+        float plotX = radiusX,
+                plotY = radiusY,
+                d = 3 - (2 * radiusX); // decision parameter
+    
+        // plot
+        plotEllipse(centerX, centerY, plotX, plotY);
+    
+        while(plotY >= plotX) {
+            plotX += 1;
         
+            if(d > 0) {
+                plotY -= 1;
+                d += 4 * (plotX - plotY) + 10;
+            }
+            else {
+                d += 4 * plotX + 6;
+            }
         
+            // plot
+            plotCircle(centerX, centerY, plotX, plotY);
+        }
+    }
+    
+    private void plotEllipse(float centerX, float centerY, float plotX, float plotY) {
+        glBegin(GL_POINTS);
+        glVertex2f(centerX + plotX, centerY + plotY);
+        glVertex2f(centerX - plotX, centerY + plotY);
+        glVertex2f(centerX + plotX, centerY - plotY);
+        glVertex2f(centerX - plotX, centerY - plotY);
+        glVertex2f(centerX + plotY, centerY + plotX);
+        glVertex2f(centerX - plotY, centerY + plotX);
+        glVertex2f(centerX + plotY, centerY - plotX);
+        glVertex2f(centerX - plotY, centerY - plotX);
+        glEnd( );
     }
     // end draw ellipse
     
