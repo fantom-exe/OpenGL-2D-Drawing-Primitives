@@ -22,8 +22,6 @@ import java.util.Scanner;
 
 import static org.lwjgl.opengl.GL11.*;
 
-// remove
-// debug
 public class Isajanyan_Program1 {
     // stores all primitives
     private ArrayList<float[]> primitives = new ArrayList<>();
@@ -134,7 +132,6 @@ public class Isajanyan_Program1 {
                 
                 // draw primitives
                 primitives.forEach(this::drawPrimitive);
-//                drawPrimitive(primitives.get(0)); //  debug
                 
                 Display.update();
                 Display.sync(60);
@@ -142,7 +139,6 @@ public class Isajanyan_Program1 {
                 e.printStackTrace();
             }
             
-//            break; // debug
         }
         
         Display.destroy( );
@@ -277,6 +273,7 @@ public class Isajanyan_Program1 {
                 d += 4 * plotX + 6;
             }
             
+            // plot
             plotCircle(centerX, centerY, plotX, plotY);
         }
     }
