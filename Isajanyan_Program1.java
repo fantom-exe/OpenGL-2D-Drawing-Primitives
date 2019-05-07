@@ -276,6 +276,8 @@ public class Isajanyan_Program1 {
             else {
                 d += 4 * plotX + 6;
             }
+            
+            plotCircle(centerX, centerY, plotX, plotY);
         }
     }
     
