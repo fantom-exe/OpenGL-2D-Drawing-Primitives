@@ -175,24 +175,24 @@ public class Isajanyan_Program1 {
         // tests
         if(Math.abs(dy) < Math.abs(dx)) {
             if(x0 > x1) {
-                plotLineLow(x1, y1, x0, y0);
+                lineLow(x1, y1, x0, y0);
             }
             else {
-                plotLineLow(x0, y0, x1, y1);
+                lineLow(x0, y0, x1, y1);
             }
         }
         else {
             if(y0 > y1) {
-                plotLineHigh(x1, y1, x0, y0);
+                lineHigh(x1, y1, x0, y0);
             }
             else {
-                plotLineHigh(x0, y0, x1, y1);
+                lineHigh(x0, y0, x1, y1);
             }
         }
         
     }
     
-    private void plotLineLow(float x0, float y0, float x1, float y1) {
+    private void lineLow(float x0, float y0, float x1, float y1) {
         float dx = x1 - x0,
               dy = y1 - y0,
               yi = 1;
@@ -222,7 +222,7 @@ public class Isajanyan_Program1 {
         glEnd();
     }
     
-    private void plotLineHigh(float x0, float y0, float x1, float y1) {
+    private void lineHigh(float x0, float y0, float x1, float y1) {
         float dx = x1 - x0,
               dy = y1 - y0,
               xi = 1;
@@ -259,11 +259,9 @@ public class Isajanyan_Program1 {
         glColor3f(0.0f, 0.0f, 1.0f);
         
         // init values
-        float plotX  = 0,
-              plotY  = radius,
-              p      = 5f/4f - radius; // decision parameter
-//              theta  = 0,
-//              twoPI  = (float) (2 * Math.PI);
+        float plotX  = radius,
+              plotY  = 0,
+              d      = 3 - (2 * radius); // decision parameter
         
         // plot
         glBegin(GL_POINTS);
@@ -306,4 +304,5 @@ public class Isajanyan_Program1 {
         Isajanyan_Program1 program1 = new Isajanyan_Program1();
         program1.start();
     }
+    
 }
