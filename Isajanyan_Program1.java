@@ -255,16 +255,28 @@ public class Isajanyan_Program1 {
     
     
     // begin draw circle
-    private void drawCircle(float x, float y, float r) {
+    private void drawCircle(float centerX, float centerY, float radius) {
         glColor3f(0.0f, 0.0f, 1.0f);
         
         // init values
         float plotX  = 0,
-              plotY  = r,
-              d      = 3 - (2 * r); // decision parameter
+              plotY  = radius,
+              d      = 3 - (2 * radius); // decision parameter
         
         // plot
-        plotCircle(x, y, plotX, plotY);
+        plotCircle(centerX, centerY, plotX, plotY);
+        
+        while(plotY >= plotX) {
+            plotX += 1;
+            
+            if(d > 0) {
+                plotY -= 1;
+                d += 4 * (plotX-plotY) + 10;
+            }
+            else {
+                d += 4 * plotX + 6;
+            }
+        }
     }
     
     private void plotCircle(float centerX, float centerY, float plotX, float plotY) {
