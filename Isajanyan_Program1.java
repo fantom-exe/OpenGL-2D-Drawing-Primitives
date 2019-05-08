@@ -298,33 +298,52 @@ public class Isajanyan_Program1 {
         glColor3f(0.0f, 1.0f, 0.0f);
         
         // init values
-        float plotX = radiusX,
+        float radiusX2 = radiusX * radiusX,
+              radiusY2 = radiusY * radiusY,
+              twoRadiusX2 = 2 * radiusX2,
+              twoRadiusY2 = 2 * radiusY2,
+              p,
+              plotX = 0,
               plotY = radiusY,
-              d = 3 - (radiusX + radiusY); // decision parameter
+              px = 0,
+              py = twoRadiusX2 * plotY;
         
-        // plot
+        // plot init points
         plotEllipse(centerX, centerY, plotX, plotY);
         
-        // init values
-        plotX = radiusY;
-        plotY = radiusX;
-        d = 3 - (radiusX + radiusY); // decision parameter
-        
-        // plot
-        plotEllipse(centerX, centerY, plotX, plotY);
-        
-        while(plotY >= plotX) {
-            plotX += 1;
+        p = Math.round(radiusY2 - (radiusX2 * radiusY) + (0.25 * radiusX2));
+        while(px < py) {
+            plotX++;
+            px += twoRadiusY2;
             
-            if(d > 0) {
-                plotY -= 1;
-                d += 4 * (plotX - plotY) + 10;
+            if(p < 0) {
+                p += radiusY2 + px;
             }
             else {
-                d += 4 * plotX + 6;
+                plotY--;
+                py -= twoRadiusX2;
+                p += radiusY2 + px - py;
             }
             
-            // plot
+            // plot region 1
+            plotEllipse(centerX, centerY, plotX, plotY);
+        }
+        
+        p = Math.round(radiusY2 * (plotX+0.5) * (plotX+0.5) + radiusX2 * (plotY-1) * (plotY-1) - radiusX2 * radiusY2);
+        while(plotY > 0) {
+            plotY--;
+            py -= twoRadiusX2;
+            
+            if(p > 0) {
+                p += radiusX2 - py;
+            }
+            else {
+                plotX++;
+                px += twoRadiusX2;
+                p += radiusX2 - py + px;
+            }
+            
+            // plot region 2
             plotEllipse(centerX, centerY, plotX, plotY);
         }
     }
@@ -335,10 +354,6 @@ public class Isajanyan_Program1 {
             glVertex2f(centerX - plotX, centerY + plotY);
             glVertex2f(centerX + plotX, centerY - plotY);
             glVertex2f(centerX - plotX, centerY - plotY);
-            glVertex2f(centerX + plotY, centerY + plotX);
-            glVertex2f(centerX - plotY, centerY + plotX);
-            glVertex2f(centerX + plotY, centerY - plotX);
-            glVertex2f(centerX - plotY, centerY - plotX);
         glEnd( );
     }
     // end draw ellipse
