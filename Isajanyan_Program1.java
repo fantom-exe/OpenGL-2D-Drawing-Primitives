@@ -300,7 +300,15 @@ public class Isajanyan_Program1 {
         // init values
         float plotX = radiusX,
               plotY = radiusY,
-              d = 3 - (2 * radiusX); // decision parameter
+              d = 3 - (radiusX + radiusY); // decision parameter
+        
+        // plot
+        plotEllipse(centerX, centerY, plotX, plotY);
+        
+        // init values
+        plotX = radiusY;
+        plotY = radiusX;
+        d = 3 - (radiusX + radiusY); // decision parameter
         
         // plot
         plotEllipse(centerX, centerY, plotX, plotY);
